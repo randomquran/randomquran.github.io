@@ -7,12 +7,8 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="quran.css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/earlyaccess/scheherazade.css" rel="stylesheet" type="text/css">
     <script src="javascripts/scale.fix.js"></script>
     <script src="https://cdn.rawgit.com/tunnckoCore/randomorg-js/master/dist/randomorg-js.js"></script>
-    <script src="http://qzaidi.github.io/quran/js/quran-data.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
@@ -41,22 +37,21 @@
           //                  console.log('==START==');
           //                  console.log(body.result.random.data[0]);
           //                });
-        var rqChapter = Math.floor((Math.random() * 114) + 1);
-        var rqVerse = Math.floor((Math.random() * 255) + 1);
-        var rqScript = document.createElement('script');
-        rqScript.setAttribute('src','quran.js');
-        rqScript.setAttribute('chapter', rqChapter);
-        rqScript.setAttribute('verse', rqVerse);
-        var verseEl = document.getElementById('verse');
-        verseEl.appendChild(rqScript);
-        var link = document.createElement('a')
-        link.setAttribute('href', 'http://tanzil.net/?embed=true#'+rqChapter+':'+rqVerse);
-        link.text = 'More';
-        verseEl.appendChild(link);
-        </script>
-        <div id='verses2'></div>
-        <div id='translation'></div>
-        <script chapter=93 verse=6 count=5 selector='#verses2' trans='#translation' src="/quran.js">
+          var rqChapter = Math.floor((Math.random() * 114) + 1);
+          var rqVerse = Math.floor((Math.random() * 255) + 1);
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.src = "http://qzaidi.github.io/quran/js/quran.js";
+          s.setAttribute('chapter', rqChapter);
+          s.setAttribute('verse', rqVerse);
+
+          var link = document.createElement('a')
+          var linkText = document.createTextNode("More");
+          link.setAttribute('href', 'http://tanzil.net/?embed=true#'+rqChapter+':'+rqVerse);
+          link.appendChild(linkText);
+          ( document.getElementsByTagName("section")[0] || document.documentElement ).appendChild( s );
+          ( document.getElementsByTagName("section")[0] || document.documentElement ).appendChild( link );
+
         </script>
       </section>
     </div>
