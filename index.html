@@ -26,16 +26,33 @@
         </ul>
       </header>
       <section>
+        <div id="verse"></verse>
         <script>
-          var randomJs = new RandomJs();
-          var result = randomJs
-                          .apikey('4d2753d8-dc1b-42c7-bb6e-369d867bf4c6') // your apikey here 
-                          .method('generateIntegers')
-                          .params({n:1, min:1, max:114})
-                          .post(function(xhr, stream, body) {
-                            console.log('==START==');
-                            console.log(body.result.random.data[0]);
-                          });
+          //var randomJs = new RandomJs();
+          //var result = randomJs
+          //                .apikey('4d2753d8-dc1b-42c7-bb6e-369d867bf4c6') // your apikey here 
+          //                .method('generateIntegers')
+          //                .params({n:1, min:1, max:114})
+          //                .post(function(xhr, stream, body) {
+          //                  console.log('==START==');
+          //                  console.log(body.result.random.data[0]);
+          //                });
+        var rqChapter = Math.floor((Math.random() * 114) + 1);
+        var rqVerse = Math.floor((Math.random() * 255) + 1);
+        var rqScript = document.createElement('script');
+        rqScript.setAttribute('src','http://qzaidi.github.io/quran/js/quran.js');
+        rqScript.setAttribute('chapter', rqChapter);
+        rqScript.setAttribute('verse', rqVerse);
+        var verseEl = document.getElementById('verse');
+        verseEl.appendChild(rqScript);
+        var link = document.createElement('a')
+        link.setAttribute('href', 'http://tanzil.net/?embed=true#'+rqChapter+':'+rqVerse);
+        link.text = 'More';
+        verseEl.appendChild(link);
+        </script>
+        <div id='verses2'></div>
+        <div id='translation'></div>
+        <script chapter=93 verse=6 count=5 selector='#verses2' trans='#translation' src="/quran.js">
         </script>
       </section>
     </div>
