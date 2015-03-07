@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="javascripts/scale.fix.js"></script>
+    <script src="https://cdn.rawgit.com/tunnckoCore/randomorg-js/master/dist/randomorg-js.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
@@ -25,7 +26,23 @@
         </ul>
       </header>
       <section>
-        
+        <script>
+          var randomJs = new RandomJs();
+          var result = randomJs
+                          .apikey('4d2753d8-dc1b-42c7-bb6e-369d867bf4c6') // your apikey here 
+                          .method('generateStrings')
+                          .params({n:4,length:11})
+                          .post(function(xhr, stream, body) {
+                            console.log('==START==')
+                            console.log('==xhr==')
+                            console.log(xhr)
+                            console.log('==stream==')
+                            console.log(stream)
+                            console.log('==body==')
+                            console.log(body)
+                            console.log('==END==')
+                          });
+        </script>
       </section>
     </div>
     <footer>
