@@ -33,14 +33,8 @@
                           .method('generateIntegers')
                           .params({n:1, min:1, max:114})
                           .post(function(xhr, stream, body) {
-                            console.log('==START==')
-                            console.log('==xhr==')
-                            console.log(xhr)
-                            console.log('==stream==')
-                            console.log(stream)
-                            console.log('==body==')
-                            console.log(body)
-                            console.log('==END==')
+                            console.log('==START==');
+                            console.log(body.result.random.data[0]);
                           });
         </script>
       </section>
