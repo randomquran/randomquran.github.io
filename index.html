@@ -30,8 +30,8 @@
           var randomJs = new RandomJs();
           var result = randomJs
                           .apikey('4d2753d8-dc1b-42c7-bb6e-369d867bf4c6') // your apikey here 
-                          .method('generateStrings')
-                          .params({n:4,length:11})
+                          .method('generateIntegers')
+                          .params({n:1, min:1, max:114})
                           .post(function(xhr, stream, body) {
                             console.log('==START==')
                             console.log('==xhr==')
