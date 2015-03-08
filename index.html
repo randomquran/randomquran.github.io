@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="javascripts/scale.fix.js"></script>
     <script src="https://cdn.rawgit.com/tunnckoCore/randomorg-js/master/dist/randomorg-js.js"></script>
+    <script src="quran.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
@@ -43,18 +44,13 @@
           //                  console.log(body.result.random.data[0]);
           //                });
           var rqChapter = Math.floor((Math.random() * 114) + 1);
-          var rqVerse = Math.floor((Math.random() * 50) + 1);
-          var s = document.createElement("script");
-          s.type = "text/javascript";
-          s.src = "http://qzaidi.github.io/quran/js/quran.js";
-          s.setAttribute('chapter', rqChapter);
-          s.setAttribute('verse', rqVerse);
+          var rqVerse = Math.floor((Math.random() * QuranData.Sura[rqChapter][1]) + 1);
+          QuranData.renderVerse({chapter: rqChapter, verse: rqVerse})
 
           var link = document.createElement('a')
           var linkText = document.createTextNode("More");
           link.setAttribute('href', 'http://tanzil.net/?embed=true#'+rqChapter+':'+rqVerse);
           link.appendChild(linkText);
-          ( document.getElementsByTagName("section")[0] || document.documentElement ).appendChild( s );
           ( document.getElementsByTagName("section")[0] || document.documentElement ).appendChild( link );
 
         </script>

@@ -561,29 +561,22 @@ function getDataSource(params) {
   return src;
 }
 
-(function() {
+QuranData.renderVerse = function(params) {
   var scripts = document.getElementsByTagName('script');
-  var thisScript = document.currentScript || scripts[scripts.length-1];
-  var params = {};
   var s = scripts[0];
+  var params = params || {}
   var gs,l;
-
-  [ 'chapter', 'verse', 'count', 'selector', 'trans', 'audio' ].forEach(function(k) {
-    var p =thisScript.getAttribute(k);
-    if (p) {
-      params[k] = p;
-    }
-  });
 
   function leadZeroes(num,lead) {
     return new Array(lead+1 - String(num).length).join('0') + String(num) ;
   }
 
   if (!params.selector) {
+    section = document.getElementsByTagName('section')[0]
     l = document.createElement('link');
     l.setAttribute('rel','stylesheet');
     l.setAttribute('type','text/css');
-    l.setAttribute('href', thisScript.getAttribute('src').replace('.js','.css'));
+    l.setAttribute('href', 'quran.css');
     s.parentNode.insertBefore(l,s);
     params.elem = document.createElement('div');
     params.elem.className = 'ayahBox qarabic';
@@ -593,11 +586,11 @@ function getDataSource(params) {
           leadZeroes(params.chapter,3) + leadZeroes(params.verse,3) + '.mp3').play();
       };
     }
-    thisScript.parentNode.insertBefore(params.elem,thisScript);
+    section.appendChild(params.elem);
   }
 
   gs = document.createElement('script');
   gs.async="true";
   gs.src=getDataSource(params);
   s.parentNode.insertBefore(gs, s);
-}());
+}
