@@ -601,7 +601,7 @@ QuranData.renderVerse = function(params) {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        trans.innerText = data.text;
+        trans.innerText = data.data.text;
 	section.appendChild(trans);
       });
     }
