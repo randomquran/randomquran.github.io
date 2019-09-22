@@ -589,7 +589,14 @@ QuranData.renderVerse = function(params) {
     section.appendChild(params.elem);
     trans = document.createElement('div');
     trans.className = 'ayahBox';
-    trans.text = 'test';
+    let response = await fetch('http://api.alquran.cloud/v1/ayah/' + params.chapter + ':' + params.verse + '/ms.basmeih');
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let json = await response.json();
+        trans.innerText = json.data.text;
+    } else {
+        console.log("HTTP-Error: " + response.status);
+    }
     section.appendChild(trans);
   }
 
