@@ -587,6 +587,10 @@ QuranData.renderVerse = function(params) {
       };
     }
     section.appendChild(params.elem);
+    trans = document.createElement('div');
+    trans.className = 'ayahBox';
+    trans.text = 'test';
+    section.appendChild(trans);
   }
 
   gs = document.createElement('script');
