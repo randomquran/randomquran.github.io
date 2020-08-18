@@ -590,7 +590,7 @@ QuranData.renderVerse = function(params) {
     trans = document.createElement('div');
     trans.className = 'ayahBox';
     
-    fetch('http://api.alquran.cloud/v1/ayah/' + params.chapter + ':' + params.verse + '/ms.basmeih')
+    fetch('https://api.alquran.cloud/v1/ayah/' + params.chapter + ':' + params.verse + '/ms.basmeih')
     .then(
     function(response) {
       if (response.status !== 200) {
