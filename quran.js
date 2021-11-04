@@ -566,6 +566,7 @@ QuranData.renderVerse = function(params) {
   var s = scripts[0];
   var params = params || {}
   var gs,l;
+  var ayah, trans;
 
   function leadZeroes(num,lead) {
     return new Array(lead+1 - String(num).length).join('0') + String(num) ;
@@ -587,6 +588,9 @@ QuranData.renderVerse = function(params) {
       };
     }
     section.appendChild(params.elem);
+    ayah = document.createElement('img');
+    ayah.src = "https://placequran.com/" + params.chapter + "/" + params.verse + "/ar";
+    section.appendChild(ayah);
     trans = document.createElement('div');
     trans.className = 'ayahBox';
     
