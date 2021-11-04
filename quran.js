@@ -615,8 +615,8 @@ QuranData.renderVerse = function(params) {
   });
   }
 
-  gs = document.createElement('script');
-  gs.async="true";
-  gs.src=getDataSource(params);
-  s.parentNode.insertBefore(gs, s);
+  //gs = document.createElement('script');
+  //gs.async="true";
+  //gs.src=getDataSource(params);
+  //s.parentNode.insertBefore(gs, s);
 }
