@@ -46,6 +46,7 @@
           var rqChapter = Math.floor((Math.random() * 114) + 1);
           var rqVerse = Math.floor((Math.random() * QuranData.Sura[rqChapter][1]) + 1);
           QuranData.renderVerse({chapter: rqChapter, verse: rqVerse})
+          console.log(rqChapter, rqVerse);
 
           var link = document.createElement('a')
           var linkText = document.createTextNode("More");
