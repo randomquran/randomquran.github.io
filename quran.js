@@ -587,7 +587,7 @@ QuranData.renderVerse = function(params) {
           leadZeroes(params.chapter,3) + leadZeroes(params.verse,3) + '.mp3').play();
       };
     }
-    section.appendChild(params.elem);
+    //section.appendChild(params.elem);
     ayah = document.createElement('img');
     ayah.src = "https://placequran.com/" + params.chapter + "/" + params.verse + "/ar";
     section.appendChild(ayah);
